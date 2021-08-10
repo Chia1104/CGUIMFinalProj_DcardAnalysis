@@ -20,9 +20,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private Context mContext;
 
     public Adapter(Context context, List<Dcard> dcards) {
+        this.mContext = context;
         this.inflater = LayoutInflater.from(context);
         this.dcards = dcards;
-        mContext = context;
     }
 
 
@@ -58,16 +58,16 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 @Override
                 public void onClick(View v) {
                     try {
-                        Intent intent = new Intent(v.getContext(), DcardDetailActivity.class);
+                        Intent intent = new Intent(mContext, DcardDetailActivity.class);
                         intent.putExtra("title", mTitle.getText().toString());
                         intent.putExtra("content", mContent.getText().toString());
                         intent.putExtra("date", mDate.getText().toString());
-                        v.getContext().startActivity(intent);
-                        Toast.makeText(v.getContext(),
+                        mContext.startActivity(intent);
+                        Toast.makeText(mContext,
                                 "clicked",Toast.LENGTH_SHORT).show();
                     }
                     catch(Exception e) {
-                        Toast.makeText(v.getContext(),
+                        Toast.makeText(mContext,
                                 "error",Toast.LENGTH_SHORT).show();
                     }
 
