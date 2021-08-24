@@ -58,11 +58,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 @Override
                 public void onClick(View v) {
                     try {
-                        Intent intent = new Intent(mContext, DcardDetailActivity.class);
-                        intent.putExtra("title", mTitle.getText().toString());
-                        intent.putExtra("content", mContent.getText().toString());
-                        intent.putExtra("date", mDate.getText().toString());
-                        mContext.startActivity(intent);
+//                        //ERROR//Intent intent = new Intent(mContext, DcardDetailActivity.class);
+//                        intent.putExtra("title", mTitle.getText().toString());
+//                        intent.putExtra("content", mContent.getText().toString());
+//                        intent.putExtra("date", mDate.getText().toString());
+//                        mContext.startActivity(intent);//ERROR//
                         Toast.makeText(mContext,
                                 "clicked",Toast.LENGTH_SHORT).show();
                     }
