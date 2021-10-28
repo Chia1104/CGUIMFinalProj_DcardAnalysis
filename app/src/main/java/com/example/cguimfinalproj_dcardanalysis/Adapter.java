@@ -47,31 +47,29 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView mTitle, mDate, mContent;
+        public TextView mTitle, mDate, mContent;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mTitle = (TextView) itemView.findViewById(R.id.title_txtView);
             mDate = (TextView) itemView.findViewById(R.id.date_txtView);
             mContent = (TextView) itemView.findViewById(R.id.content_txtView);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    try {
-//                        //ERROR//Intent intent = new Intent(mContext, DcardDetailActivity.class);
-//                        intent.putExtra("title", mTitle.getText().toString());
-//                        intent.putExtra("content", mContent.getText().toString());
-//                        intent.putExtra("date", mDate.getText().toString());
-//                        mContext.startActivity(intent);//ERROR//
-                        Toast.makeText(mContext,
-                                "clicked",Toast.LENGTH_SHORT).show();
-                    }
-                    catch(Exception e) {
-                        Toast.makeText(mContext,
-                                "error",Toast.LENGTH_SHORT).show();
-                    }
-
+            itemView.setOnClickListener(v -> {
+                try {
+                    Intent intent = new Intent(mContext, DcardDetailActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("title", mTitle.getText().toString());
+                    intent.putExtra("content", mContent.getText().toString());
+                    intent.putExtra("date", mDate.getText().toString());
+                    mContext.startActivity(intent);
+                    Toast.makeText(mContext,
+                            "clicked",Toast.LENGTH_SHORT).show();
                 }
+                catch(Exception e) {
+                    Toast.makeText(mContext,
+                            "error" + e,Toast.LENGTH_SHORT).show();
+                }
+
             });
 
         }

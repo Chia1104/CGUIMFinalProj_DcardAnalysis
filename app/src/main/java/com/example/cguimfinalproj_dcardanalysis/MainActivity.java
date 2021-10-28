@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnTest;
+    Button btnTest, btnChartTest;
     RecyclerView mRecyclerView;
     List<Dcard> dcardList;
     private static final String DCARD_URL = "http://192.168.0.104:13306/GetData4.php";
@@ -45,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
         btnTest = findViewById(R.id.btnTest);
         btnTest.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, PageTest1.class));
+        });
+        btnChartTest = findViewById(R.id.btnChartTest);
+        btnTest.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, PageTest2.class));
         });
     }
 
